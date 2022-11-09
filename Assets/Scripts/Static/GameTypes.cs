@@ -4,17 +4,11 @@
     {
         public enum Plant
         {
+            Open,
             Carrot,
             Grass,
             Tree,
             Close
-        }
-        
-        public enum Level
-        {
-            Min,
-            Mid,
-            Max
         }
     }
 }
