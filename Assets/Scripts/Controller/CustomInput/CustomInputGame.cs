@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Controller.CustomInput
 {
@@ -6,7 +7,7 @@ namespace Controller.CustomInput
     {
         protected override void SetupKeyboard()
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
                 InputMouse_Action?.Invoke(KeyCode.Mouse0, true, Input.mousePosition);
             
             if (Input.GetKeyDown(KeyCode.Escape))
