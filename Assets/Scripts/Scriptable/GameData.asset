@@ -13,3 +13,13 @@ MonoBehaviour:
   m_Name: GameData
   m_EditorClassIdentifier: 
   PrefabCell: {fileID: 2829885999698938806, guid: d38a4c39957d9ba46b4c84090ce97f2c, type: 3}
+  PlantData:
+  - Type: 0
+    GrowDelay: 0.75
+    Prefab: {fileID: 2041756296894960015, guid: 1ece4b05bfd76f742b7ec0beef834f76, type: 3}
+  - Type: 1
+    GrowDelay: 10
+    Prefab: {fileID: 1018150381905452002, guid: e1a3c9ebd86983b4f814b13e5ea811b8, type: 3}
+  - Type: 2
+    GrowDelay: 1
+    Prefab: {fileID: 3423313912885161098, guid: 9ad7def6cfbcce74c8e4b0f77f5a79c3, type: 3}
