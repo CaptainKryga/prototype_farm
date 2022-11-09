@@ -1,3 +1,4 @@
+using Model;
 using UnityEngine;
 
 namespace Scriptable
