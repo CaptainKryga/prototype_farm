@@ -25,7 +25,8 @@ namespace Model
                 {
                     Vector3 nowPos = new Vector3(x * GameMetrics.KoofGenMapFromCell, 0, 
                         y * GameMetrics.KoofGenMapFromCell);
-                    cells[x * 10 + y] = Instantiate(_gameData.PrefabCell, startPos + nowPos, Quaternion.identity, _parent);
+                    cells.Add(Instantiate(_gameData.PrefabCell, startPos + nowPos,
+                        Quaternion.identity, _parent));
                 }
             }
 
