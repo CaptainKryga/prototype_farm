@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace View
 {
-    public class MenuBase : MonoBehaviour
+    public abstract class MenuBase : MonoBehaviour
     {
         [SerializeField] protected GameObject PanelBase;
 
