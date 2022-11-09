@@ -1,4 +1,6 @@
 using Controller.CustomInput;
+using Model.Components;
+using Scriptable;
 using Static;
 using UnityEngine;
 using View;
@@ -8,6 +10,9 @@ namespace Model
 {
     public class FieldController : MonoBehaviour
     {
+        [SerializeField] private GameData _gameData;
+        [SerializeField] private PlantGrow _plantGrow;
+        
         private CustomInputBase _customInput;
         private Cell[] _cells;
         private Cell _cellActual;
@@ -15,7 +20,7 @@ namespace Model
         private Camera _camera;
         
         [SerializeField] private MenuBase _menuBuy;
-         
+        
         public void Setup(Cell[] cells, CustomInputBase customInput)
         {
             _customInput = customInput;
@@ -57,6 +62,8 @@ namespace Model
         public void BuyPlant(GameTypes.Plant type)
         {
             ClearCells();
+
+            _plantGrow.Starter(_gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
         }
