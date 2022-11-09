@@ -12,6 +12,7 @@ namespace Model
     {
         [SerializeField] private GameData _gameData;
         [SerializeField] private PlantGrow _plantGrow;
+        [SerializeField] private PlantGather _plantGather;
         
         private CustomInputBase _customInput;
         private Cell[] _cells;
@@ -19,7 +20,7 @@ namespace Model
 
         private Camera _camera;
         
-        [SerializeField] private MenuBase _menuBuy;
+        [SerializeField] private MenuBase _menuBuy, _menuGather;
         
         public void Setup(Cell[] cells, CustomInputBase customInput)
         {
@@ -43,9 +44,22 @@ namespace Model
                     if (_cellActual)
                     {
                         ClearCells();
-                        
-                        _cellActual.SetUse(true);
-                        ((MenuGameBuy) _menuBuy).Setup(mousePosition);
+
+                        if (_cellActual.Plant == GameTypes.Plant.Open)
+                        {
+                            _cellActual.SetUse(true);
+                            ((MenuGameBuy) _menuBuy).Setup(mousePosition);
+                        }
+                        else if (_cellActual.Plant != GameTypes.Plant.Close &&
+                                 _cellActual.Plant != GameTypes.Plant.Tree)
+                        {
+                            _cellActual.SetUse(true);
+                            ((MenuGameGather) _menuGather).Setup(mousePosition, _cellActual.Plant);
+                        }
+                        else
+                        {
+                            _cellActual = null;
+                        }
                     }
                 }
             }
@@ -63,7 +77,18 @@ namespace Model
         {
             ClearCells();
 
-            _plantGrow.Starter(_gameData.GetPlantFromType(type), _cellActual);
+            if (type != GameTypes.Plant.Close)
+                _plantGrow.Starter(_gameData.GetPlantFromType(type), _cellActual);
+
+            _cellActual = null;
+        }
+
+        public void GatherPlant(GameTypes.Plant type)
+        {
+            ClearCells();
+            
+            if (type == GameTypes.Plant.Carrot || type == GameTypes.Plant.Grass)
+                _plantGather.Starter(_gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
         }

@@ -18,5 +18,10 @@ namespace Controller
         {
             _modelController.BuyPlant(type);
         }
+
+        public void GatherPlant(GameTypes.Plant type)
+        {
+            _modelController.GatherPlant(type);
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace Model.Components
         private Color _colorDefault, _colorCustom;
         [SerializeField] private Transform _parentPlant;
 
-        public GameTypes.Level Level;
+        public GameTypes.Plant Plant;
         
         public Transform ParentPlant { get => _parentPlant; }
         public Image Image { get => _img; }
@@ -25,7 +25,7 @@ namespace Model.Components
             _colorDefault = _meshRenderer.material.color;
             _colorCustom = Color.red;
 
-            Level = GameTypes.Level.Min;
+            Plant = GameTypes.Plant.Open;
         }
 
         public void SetUse(bool flag)

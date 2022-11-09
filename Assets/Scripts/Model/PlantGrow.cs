@@ -1,13 +1,17 @@
 using System.Collections;
 using Model.Components;
+using Static;
 using UnityEngine;
 
 namespace Model
 {
     public class PlantGrow : MonoBehaviour
     {
+        [SerializeField] private ScoreController _scoreController;
+        
         public void Starter(PlantData plantData, Cell cell)
         {
+            cell.Plant = GameTypes.Plant.Close;
             StartCoroutine(Grow(plantData, cell));
         }
 
@@ -24,6 +28,12 @@ namespace Model
 
             cell.Image.enabled = false;
             Instantiate(plantData.Prefab, cell.ParentPlant);
+
+            if (plantData.Type == GameTypes.Plant.Carrot)
+                _scoreController.CarrotScore = 1;
+            _scoreController.Experience = (int)plantData.GrowDelay * 10;
+            
+            cell.Plant = plantData.Type;
             yield break;
         }
     }

@@ -21,5 +21,10 @@ namespace Model
         {
             _fieldController.BuyPlant(type);
         }
+
+        public void GatherPlant(GameTypes.Plant type)
+        {
+            _fieldController.GatherPlant(type);
+        }
     }
 }
