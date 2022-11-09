@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Scriptable;
 using Static;
 using UnityEngine;
@@ -11,8 +12,9 @@ namespace Model
 
         [SerializeField] private Transform _parent;
 
-        private void Start()
+        public Cell[] Setup()
         {
+            List<Cell> cells = new List<Cell>();
             Vector3 startPos = _parent.position +
                                -Vector3.right * _gameSettings.Width +
                                -Vector3.forward * _gameSettings.Height;
@@ -23,9 +25,11 @@ namespace Model
                 {
                     Vector3 nowPos = new Vector3(x * GameMetrics.KoofGenMapFromCell, 0, 
                         y * GameMetrics.KoofGenMapFromCell);
-                    Instantiate(_gameData.PrefabCell, startPos + nowPos, Quaternion.identity, _parent);
+                    cells[x * 10 + y] = Instantiate(_gameData.PrefabCell, startPos + nowPos, Quaternion.identity, _parent);
                 }
             }
+
+            return cells.ToArray();
         }
     }
 }
