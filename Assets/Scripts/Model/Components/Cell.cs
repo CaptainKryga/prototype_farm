@@ -29,7 +29,7 @@ namespace Model.Components
             Plant = GameTypes.Plant.Open;
         }
 
-        public void SetUse(bool flag)
+        public void SetUseMaterial(bool flag)
         {
             _meshRenderer.material.color = flag ? _colorCustom : _colorDefault;
         }

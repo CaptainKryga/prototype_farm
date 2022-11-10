@@ -12,8 +12,7 @@ namespace Model
     public class FieldController : MonoBehaviour
     {
         [SerializeField] private GameData _gameData;
-        [SerializeField] private PlantGrow _plantGrow;
-        [SerializeField] private PlantGather _plantGather;
+        [SerializeField] private PlantUseBase _plantGrow, _plantGather;
 
         [SerializeField] private CharaсterFarmer CharaсterFarmer;
         
@@ -50,13 +49,13 @@ namespace Model
 
                         if (_cellActual.Plant == GameTypes.Plant.Open)
                         {
-                            _cellActual.SetUse(true);
+                            _cellActual.SetUseMaterial(true);
                             ((MenuGameBuy) _menuBuy).Setup(mousePosition);
                         }
                         else if (_cellActual.Plant != GameTypes.Plant.Close &&
                                  _cellActual.Plant != GameTypes.Plant.Tree)
                         {
-                            _cellActual.SetUse(true);
+                            _cellActual.SetUseMaterial(true);
                             ((MenuGameGather) _menuGather).Setup(mousePosition, _cellActual.Plant);
                         }
                         else
@@ -72,7 +71,7 @@ namespace Model
         {
             for (int x = 0; x < _cells.Length; x++)
             {
-                _cells[x].SetUse(false);
+                _cells[x].SetUseMaterial(false);
             }
         }
 
@@ -81,7 +80,10 @@ namespace Model
             ClearCells();
 
             if (type != GameTypes.Plant.Close)
+            {
+                _cellActual.Plant = GameTypes.Plant.Close;
                 CharaсterFarmer.SetNextQuest(_plantGrow.Starter, _gameData.GetPlantFromType(type), _cellActual);
+            }
 
             _cellActual = null;
         }
