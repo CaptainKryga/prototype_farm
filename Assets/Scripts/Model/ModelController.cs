@@ -17,14 +17,14 @@ namespace Model
             _fieldController.Setup(cells, _customInput);
         }
 
-        public void BuyPlant(GameTypes.Plant type)
+        public void PlantGrow(GameTypes.Plant type)
         {
-            _fieldController.BuyPlant(type);
+            _fieldController.PlantGrow(type);
         }
 
-        public void GatherPlant(GameTypes.Plant type)
+        public void PlantGather(GameTypes.Plant type)
         {
-            _fieldController.GatherPlant(type);
+            _fieldController.PlantGather(type);
         }
     }
 }

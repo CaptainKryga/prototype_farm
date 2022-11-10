@@ -1,5 +1,6 @@
 using Controller.CustomInput;
 using Model.Components;
+using Model.PlantUse;
 using Scriptable;
 using Static;
 using UnityEngine;
@@ -75,7 +76,7 @@ namespace Model
             }
         }
 
-        public void BuyPlant(GameTypes.Plant type)
+        public void PlantGrow(GameTypes.Plant type)
         {
             ClearCells();
 
@@ -84,8 +85,7 @@ namespace Model
 
             _cellActual = null;
         }
-
-        public void GatherPlant(GameTypes.Plant type)
+        public void PlantGather(GameTypes.Plant type)
         {
             ClearCells();
             

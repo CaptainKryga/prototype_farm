@@ -16,25 +16,25 @@ namespace View.Game
         
         public void OnClick_BuyCarrot()
         {
-            _global.BuyPlant(GameTypes.Plant.Carrot);
+            _global.PlantGrow(GameTypes.Plant.Carrot);
             SetEnable(false);
         }
 
         public void OnClick_ButTree()
         {
-            _global.BuyPlant(GameTypes.Plant.Tree);
+            _global.PlantGrow(GameTypes.Plant.Tree);
             SetEnable(false);
         }
 
         public void OnClick_BuyGrass()
         {
-            _global.BuyPlant(GameTypes.Plant.Grass);
+            _global.PlantGrow(GameTypes.Plant.Grass);
             SetEnable(false);
         }
 
         public void OnClick_Close()
         {
-            _global.BuyPlant(GameTypes.Plant.Close);
+            _global.PlantGrow(GameTypes.Plant.Close);
             SetEnable(false);
         }
     }

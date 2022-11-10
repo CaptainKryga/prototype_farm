@@ -20,19 +20,19 @@ namespace View.Game
         
         public void OnClick_GatherCarrot()
         {
-            _global.GatherPlant(GameTypes.Plant.Carrot);
+            _global.PlantGather(GameTypes.Plant.Carrot);
             SetEnable(false);
         }
 
         public void OnClick_GatherGrass()
         {
-            _global.GatherPlant(GameTypes.Plant.Grass);
+            _global.PlantGather(GameTypes.Plant.Grass);
             SetEnable(false);
         }
 
         public void OnClick_Close()
         {
-            _global.GatherPlant(GameTypes.Plant.Close);
+            _global.PlantGather(GameTypes.Plant.Close);
             SetEnable(false);
         }
     }

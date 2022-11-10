@@ -14,14 +14,14 @@ namespace Controller
             _modelController.Setup();
         }
 
-        public void BuyPlant(GameTypes.Plant type)
+        public void PlantGrow(GameTypes.Plant type)
         {
-            _modelController.BuyPlant(type);
+            _modelController.PlantGrow(type);
         }
 
-        public void GatherPlant(GameTypes.Plant type)
+        public void PlantGather(GameTypes.Plant type)
         {
-            _modelController.GatherPlant(type);
+            _modelController.PlantGather(type);
         }
     }
 }
