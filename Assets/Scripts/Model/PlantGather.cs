@@ -7,6 +7,8 @@ namespace Model
 {
     public class PlantGather : MonoBehaviour
     {
+        [SerializeField] private ScoreController _scoreController;
+
         public void Starter(PlantData plantData, Cell cell)
         {
             StartCoroutine(Gather(plantData, cell));
@@ -20,6 +22,10 @@ namespace Model
             }
 
             cell.Plant = GameTypes.Plant.Open;
+            
+            if (plantData.Type == GameTypes.Plant.Carrot)
+                _scoreController.CarrotScore = 1;
+            
             yield break;
         }
     }
