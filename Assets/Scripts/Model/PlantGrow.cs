@@ -8,10 +8,14 @@ namespace Model
     public class PlantGrow : MonoBehaviour
     {
         [SerializeField] private ScoreController _scoreController;
+        [SerializeField] private CharapterFarmer _charapterFarmer;
         
         public void Starter(PlantData plantData, Cell cell)
         {
             cell.Plant = GameTypes.Plant.Close;
+
+
+            _charapterFarmer.SetNextPosition(cell.ParentPlant.position);
             StartCoroutine(Grow(plantData, cell));
         }
 
