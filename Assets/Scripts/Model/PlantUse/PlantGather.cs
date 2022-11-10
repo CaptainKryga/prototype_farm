@@ -3,7 +3,7 @@ using Model.Components;
 using Static;
 using UnityEngine;
 
-namespace Model
+namespace Model.PlantUse
 {
     public class PlantGather : MonoBehaviour
     {
