@@ -14,7 +14,7 @@ namespace Model
         [SerializeField] private PlantGrow _plantGrow;
         [SerializeField] private PlantGather _plantGather;
 
-        [SerializeField] private CharapterFarmer _charapterFarmer;
+        [SerializeField] private CharaсterFarmer CharaсterFarmer;
         
         private CustomInputBase _customInput;
         private Cell[] _cells;
@@ -35,7 +35,7 @@ namespace Model
 
         private void ClickField(KeyCode key, bool flag, Vector2 mousePosition)
         {
-            if (flag && key == KeyCode.Mouse0 && !_cellActual && !_charapterFarmer.IsBusy)
+            if (flag && key == KeyCode.Mouse0 && !_cellActual && !CharaсterFarmer.IsBusy)
             {
                 RaycastHit hit;
                 Ray ray = _camera.ScreenPointToRay(mousePosition);
@@ -80,7 +80,7 @@ namespace Model
             ClearCells();
 
             if (type != GameTypes.Plant.Close)
-                _charapterFarmer.SetNextQuest(_plantGrow.Starter, _gameData.GetPlantFromType(type), _cellActual);
+                CharaсterFarmer.SetNextQuest(_plantGrow.Starter, _gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
         }
@@ -90,7 +90,7 @@ namespace Model
             ClearCells();
             
             if (type == GameTypes.Plant.Carrot || type == GameTypes.Plant.Grass)
-                _charapterFarmer.SetNextQuest(_plantGather.Starter, _gameData.GetPlantFromType(type), _cellActual);
+                CharaсterFarmer.SetNextQuest(_plantGather.Starter, _gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
         }

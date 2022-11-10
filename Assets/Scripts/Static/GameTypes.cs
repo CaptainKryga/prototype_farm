@@ -10,5 +10,12 @@
             Tree,
             Close
         }
+        
+        public enum Anim
+        {
+            Idle,
+            Run,
+            Farming
+        }
     }
 }

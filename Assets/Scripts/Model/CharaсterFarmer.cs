@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 namespace Model
 {
-    public class CharapterFarmer : MonoBehaviour
+    public class CharaсterFarmer : MonoBehaviour
     {
         [SerializeField] private CameraCinematicController CameraCinematicController;
         [SerializeField] private Animator animator;
@@ -35,6 +35,8 @@ namespace Model
 
             if (Vector3.Distance(agent.transform.position, cell.ParentPlant.position) <= distance)
             {
+                agent.transform.LookAt(cell.ParentPlant);
+                agent.transform.eulerAngles = new Vector3(0, agent.transform.eulerAngles.y, 0);
                 animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
                 agent.isStopped = true;
                 agent.velocity = Vector3.zero;

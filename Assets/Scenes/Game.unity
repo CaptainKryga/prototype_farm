@@ -745,7 +745,7 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 91616e602c6ef26418a324dded66682f, type: 2}
   _plantGrow: {fileID: 1739447940}
   _plantGather: {fileID: 328354281}
-  _charapterFarmer: {fileID: 3880670951576469369}
+  "Chara\u0441terFarmer": {fileID: 3880670951576469369}
   _menuBuy: {fileID: 1664084604}
   _menuGather: {fileID: 603282907}
 --- !u!1 &303022415
@@ -1104,7 +1104,7 @@ GameObject:
   - component: {fileID: 581816564}
   - component: {fileID: 581816565}
   m_Layer: 0
-  m_Name: CameraKinematic
+  m_Name: CameraCinematic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4174,6 +4174,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 745923371}
     m_Modifications:
+    - target: {fileID: 3429940981286273038, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429940981286273038, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9190a7661f37424091cf3f582a5f115, type: 2}
     - target: {fileID: 3429940981293215740, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -4221,6 +4229,10 @@ PrefabInstance:
     - target: {fileID: 3429940981293577180, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
       propertyPath: m_Name
       value: CharacterFarmer
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429940981293577180, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
@@ -4271,8 +4283,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d560b5b2b38f964eb668da8fdb9a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cameraKinematicController: {fileID: 581816565}
-  rigidbody: {fileID: 3880670951576469368}
+  CameraCinematicController: {fileID: 581816565}
+  animator: {fileID: 3880670951576469371}
   agent: {fileID: 3880670951576469370}
   IsBusy: 0
 --- !u!195 &3880670951576469370
@@ -4288,8 +4300,8 @@ NavMeshAgent:
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
+  m_AngularSpeed: 250
+  m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -4297,6 +4309,11 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &3880670951576469371 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3429940981286273038, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
+  m_PrefabInstance: {fileID: 1892480019996676233}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &4437706015860909644
 GameObject:
   m_ObjectHideFlags: 0
