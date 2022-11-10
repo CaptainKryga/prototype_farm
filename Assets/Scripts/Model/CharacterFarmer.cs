@@ -12,8 +12,6 @@ namespace Model
         [SerializeField] private CameraCinematicController CameraCinematicController;
         [SerializeField] private Animator _animator;
         [SerializeField] private NavMeshAgent _agent;
-
-        private static readonly int Blend = Animator.StringToHash("Blend");
         
         public bool IsBusy;
         private bool _isFarming;
@@ -28,21 +26,22 @@ namespace Model
             _agent.autoTraverseOffMeshLink = true;
             _agent.autoBraking = true;
             
-            _animator.SetFloat(Blend, (int)GameTypes.Anim.Idle);
+            _animator.SetFloat(GameMetrics.Blend, (int)GameTypes.Anim.Idle);
         }
 
         private void SetNextPosition(Cell cell, float distance = 2)
         {
-            _animator.SetFloat(Blend, (int)GameTypes.Anim.Run);
+            _animator.SetFloat(GameMetrics.Blend, (int)GameTypes.Anim.Run);
             IsBusy = true;
             _agent.isStopped = false;
             _agent.destination = cell.ParentPlant.position;
+            
+            _agent.transform.LookAt(cell.ParentPlant);
+            _agent.transform.eulerAngles = new Vector3(0, _agent.transform.eulerAngles.y, 0);
 
             if (Vector3.Distance(_agent.transform.position, cell.ParentPlant.position) <= distance)
             {
-                _agent.transform.LookAt(cell.ParentPlant);
-                _agent.transform.eulerAngles = new Vector3(0, _agent.transform.eulerAngles.y, 0);
-                _animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
+                _animator.SetFloat(GameMetrics.Blend, (int)GameTypes.Anim.Farming);
                 _agent.isStopped = true;
                 _agent.velocity = Vector3.zero;
 
@@ -64,7 +63,7 @@ namespace Model
         {
             if (other.GetComponent<Cell>() == _saveCell)
             {
-                _animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
+                _animator.SetFloat(GameMetrics.Blend, (int)GameTypes.Anim.Farming);
                 
                 _agent.isStopped = true;
                 _agent.velocity = Vector3.zero;
@@ -89,7 +88,7 @@ namespace Model
                 yield return new WaitForEndOfFrame();
             }
 
-            _animator.SetFloat(Blend, (int)GameTypes.Anim.Idle);
+            _animator.SetFloat(GameMetrics.Blend, (int)GameTypes.Anim.Idle);
             cell.Image.enabled = false;
             IsBusy = false;
             _isFarming = false;

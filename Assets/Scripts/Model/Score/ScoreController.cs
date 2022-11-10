@@ -13,13 +13,11 @@ namespace Model.Score
 
         public int CarrotScore
         {
-            get => _carrotScore;
             set => StartCoroutine(UpdateCarrot(value));
         }
 
         public int Experience
         {
-            get => _experience;
             set => StartCoroutine(UpdateExperience(value));
         }
 

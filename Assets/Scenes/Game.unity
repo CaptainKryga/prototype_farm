@@ -2582,7 +2582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4715540abb82ad4b8e899058001f887, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreController: {fileID: 1836321475}
+  ScorePlayer: {fileID: 1836321475}
 --- !u!4 &342477854 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 856211891267094536, guid: 59f53a8d08c54a948b5e3208cc45a77c, type: 3}
@@ -3742,6 +3742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startTransform: {fileID: 1038239762}
+  _speed: 10
 --- !u!4 &586566381 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7562373171021322919, guid: 9ad7def6cfbcce74c8e4b0f77f5a79c3, type: 3}
@@ -10709,7 +10710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6018610f1002e8f46acc1a429f605ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _scoreController: {fileID: 1836321475}
+  ScorePlayer: {fileID: 1836321475}
 --- !u!1001 &1740952456
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13414,8 +13415,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CameraCinematicController: {fileID: 581816565}
-  animator: {fileID: 3880670951576469371}
-  agent: {fileID: 3880670951576469370}
+  _animator: {fileID: 3880670951576469371}
+  _agent: {fileID: 3880670951576469370}
   IsBusy: 0
 --- !u!195 &3880670951576469370
 NavMeshAgent:

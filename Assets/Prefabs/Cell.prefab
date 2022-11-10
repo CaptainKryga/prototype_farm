@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _img: {fileID: 3548468821103418188}
   _meshRenderer: {fileID: 2635707028165936732}
-  _parentPlant: {fileID: 6795111066074063794}
+  ParentPlant: {fileID: 6795111066074063794}
   CamPoint: {fileID: 8411505332928125923}
   Plant: 0
 --- !u!65 &7115429929078036075
