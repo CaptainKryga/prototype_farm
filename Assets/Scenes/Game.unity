@@ -745,6 +745,7 @@ MonoBehaviour:
   _gameData: {fileID: 11400000, guid: 91616e602c6ef26418a324dded66682f, type: 2}
   _plantGrow: {fileID: 1739447940}
   _plantGather: {fileID: 328354281}
+  _charapterFarmer: {fileID: 3880670951576469369}
   _menuBuy: {fileID: 1664084604}
   _menuGather: {fileID: 603282907}
 --- !u!1 &303022415
@@ -4194,7 +4195,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d560b5b2b38f964eb668da8fdb9a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worker: {fileID: 3880670951576469365}
   rigidbody: {fileID: 3880670951576469368}
   agent: {fileID: 3880670951576469370}
 --- !u!195 &3880670951576469370

@@ -8,12 +8,11 @@ namespace Model
     public class PlantGather : MonoBehaviour
     {
         [SerializeField] private ScoreController _scoreController;
-        [SerializeField] private CharapterFarmer _charapterFarmer;
 
-        public void Starter(PlantData plantData, Cell cell)
+        public int Starter(PlantData plantData, Cell cell)
         {
-            _charapterFarmer.SetNextPosition(cell.ParentPlant.position);
             StartCoroutine(Gather(plantData, cell));
+            return 0;
         }
 
         private IEnumerator Gather(PlantData plantData, Cell cell)

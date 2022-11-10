@@ -1,3 +1,5 @@
+using System;
+using Model.Components;
 using Static;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,7 +8,6 @@ namespace Model
 {
     public class CharapterFarmer : MonoBehaviour
     {
-        [SerializeField] private Transform worker;
         // [SerializeField] private CustomAnimator animator;
         [SerializeField] private Rigidbody rigidbody;
 
@@ -15,8 +16,6 @@ namespace Model
         //
         // [SerializeField] private GameObject boxSmall, boxMiddle;
 		
-        private Vector3 workerBodyStartPosition;
-        private Quaternion workerBodyStartRotation;
         // private float startSpeed, startAcceleration;
 		      //
         // public Transform GetTransform { get => worker; }
@@ -25,9 +24,6 @@ namespace Model
 
         private void Start()
         {
-            workerBodyStartPosition = transform.position;
-            workerBodyStartRotation = transform.rotation;
-			
             agent.autoRepath = true;
             agent.autoTraverseOffMeshLink = true;
             agent.autoBraking = true;
@@ -42,6 +38,7 @@ namespace Model
 
         public bool SetNextPosition(Vector3 position, float distance = 1)
         {
+            agent.isStopped = false;
             rigidbody.isKinematic = false;
             agent.destination = position;
 
@@ -51,6 +48,28 @@ namespace Model
                 return true;
             }
             return false;
+        }
+
+        private Func<PlantData, Cell, int> _saveFunc;
+        private PlantData _savePlant;
+        private Cell _saveCell;
+        public void SetNextQuest(Func<PlantData, Cell, int> func, PlantData plant, Cell cell)
+        {
+            _saveFunc = func;
+            _savePlant = plant;
+            _saveCell = cell;
+
+            SetNextPosition(cell.ParentPlant.position);
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.GetComponent<Cell>() == _saveCell)
+            {
+                agent.isStopped = true;
+                agent.velocity = Vector3.zero;
+                _saveFunc(_savePlant, _saveCell);
+            }
         }
 
         // public void UpdateAnimation(float walk, float classic)

@@ -13,6 +13,8 @@ namespace Model
         [SerializeField] private GameData _gameData;
         [SerializeField] private PlantGrow _plantGrow;
         [SerializeField] private PlantGather _plantGather;
+
+        [SerializeField] private CharapterFarmer _charapterFarmer;
         
         private CustomInputBase _customInput;
         private Cell[] _cells;
@@ -78,7 +80,7 @@ namespace Model
             ClearCells();
 
             if (type != GameTypes.Plant.Close)
-                _plantGrow.Starter(_gameData.GetPlantFromType(type), _cellActual);
+                _charapterFarmer.SetNextQuest(_plantGrow.Starter, _gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
         }
@@ -88,7 +90,7 @@ namespace Model
             ClearCells();
             
             if (type == GameTypes.Plant.Carrot || type == GameTypes.Plant.Grass)
-                _plantGather.Starter(_gameData.GetPlantFromType(type), _cellActual);
+                _charapterFarmer.SetNextQuest(_plantGather.Starter, _gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
         }
