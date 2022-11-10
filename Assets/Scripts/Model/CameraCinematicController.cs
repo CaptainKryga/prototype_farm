@@ -9,6 +9,7 @@ namespace Model
         [SerializeField] private Transform _startTransform;
         private Transform _camera;
         private int _id;
+        [SerializeField] private float _speed = 10f;
 
         private void Awake()
         {
@@ -35,7 +36,7 @@ namespace Model
                     break;
                 
                 _camera.position = Vector3.MoveTowards(_camera.position, 
-                    target.position, Time.deltaTime * 10);
+                    target.position, Time.deltaTime * _speed);
                 _camera.rotation = Quaternion.LerpUnclamped(_camera.rotation, 
                     target.rotation, Time.deltaTime * 3);
 

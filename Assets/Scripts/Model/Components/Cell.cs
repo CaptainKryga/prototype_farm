@@ -20,7 +20,7 @@ namespace Model.Components
 
         private void Awake()
         {
-            _img.transform.LookAt(Camera.main.transform);
+            _img.transform.LookAt(CamPoint);
             _img.enabled = false;
 
             _colorDefault = _meshRenderer.material.color;
