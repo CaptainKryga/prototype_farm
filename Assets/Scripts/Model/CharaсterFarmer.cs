@@ -7,51 +7,48 @@ using UnityEngine.AI;
 
 namespace Model
 {
-    public class CharaсterFarmer : MonoBehaviour
+    public class CharacterFarmer : MonoBehaviour
     {
         [SerializeField] private CameraCinematicController CameraCinematicController;
-        [SerializeField] private Animator animator;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private NavMeshAgent _agent;
 
-        [SerializeField] private NavMeshAgent agent;
-
+        private static readonly int Blend = Animator.StringToHash("Blend");
+        
         public bool IsBusy;
         private bool _isFarming;
-
-        private void Start()
-        {
-            agent.autoRepath = true;
-            agent.autoTraverseOffMeshLink = true;
-            agent.autoBraking = true;
-            
-            animator.SetFloat(Blend, (int)GameTypes.Anim.Idle);
-        }
-
-        public bool SetNextPosition(Cell cell, float distance = 2)
-        {
-            animator.SetFloat(Blend, (int)GameTypes.Anim.Run);
-            IsBusy = true;
-            agent.isStopped = false;
-            agent.destination = cell.ParentPlant.position;
-
-            if (Vector3.Distance(agent.transform.position, cell.ParentPlant.position) <= distance)
-            {
-                agent.transform.LookAt(cell.ParentPlant);
-                agent.transform.eulerAngles = new Vector3(0, agent.transform.eulerAngles.y, 0);
-                animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
-                agent.isStopped = true;
-                agent.velocity = Vector3.zero;
-
-                StartCoroutine(Delay(_savePlant.PlantUse, _saveCell));
-                return false;
-            }
-            return false;
-        }
 
         private Func<PlantData, Cell, int> _saveFunc;
         private PlantData _savePlant;
         private Cell _saveCell;
-        private static readonly int Blend = Animator.StringToHash("Blend");
+        
+        private void Start()
+        {
+            _agent.autoRepath = true;
+            _agent.autoTraverseOffMeshLink = true;
+            _agent.autoBraking = true;
+            
+            _animator.SetFloat(Blend, (int)GameTypes.Anim.Idle);
+        }
 
+        private void SetNextPosition(Cell cell, float distance = 2)
+        {
+            _animator.SetFloat(Blend, (int)GameTypes.Anim.Run);
+            IsBusy = true;
+            _agent.isStopped = false;
+            _agent.destination = cell.ParentPlant.position;
+
+            if (Vector3.Distance(_agent.transform.position, cell.ParentPlant.position) <= distance)
+            {
+                _agent.transform.LookAt(cell.ParentPlant);
+                _agent.transform.eulerAngles = new Vector3(0, _agent.transform.eulerAngles.y, 0);
+                _animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
+                _agent.isStopped = true;
+                _agent.velocity = Vector3.zero;
+
+                StartCoroutine(Delay(_savePlant.PlantUse, _saveCell));
+            }
+        }
         public void SetNextQuest(Func<PlantData, Cell, int> func, PlantData plant, Cell cell)
         {
             CameraCinematicController.Starter(cell.CamPoint);
@@ -67,10 +64,10 @@ namespace Model
         {
             if (other.GetComponent<Cell>() == _saveCell)
             {
-                animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
+                _animator.SetFloat(Blend, (int)GameTypes.Anim.Farming);
                 
-                agent.isStopped = true;
-                agent.velocity = Vector3.zero;
+                _agent.isStopped = true;
+                _agent.velocity = Vector3.zero;
 
                 StartCoroutine(Delay(_savePlant.PlantUse, _saveCell));
             }
@@ -92,12 +89,12 @@ namespace Model
                 yield return new WaitForEndOfFrame();
             }
 
-            animator.SetFloat(Blend, (int)GameTypes.Anim.Idle);
+            _animator.SetFloat(Blend, (int)GameTypes.Anim.Idle);
             cell.Image.enabled = false;
             IsBusy = false;
+            _isFarming = false;
             CameraCinematicController.Restart();
             _saveFunc(_savePlant, _saveCell);
-            _isFarming = false;
             yield break;
         }
     }

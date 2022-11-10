@@ -10,12 +10,11 @@ namespace Model.Components
         [SerializeField] private MeshRenderer _meshRenderer;
 
         private Color _colorDefault, _colorCustom;
-        [SerializeField] private Transform _parentPlant;
+        public Transform ParentPlant;
         public Transform CamPoint;
 
         public GameTypes.Plant Plant;
         
-        public Transform ParentPlant { get => _parentPlant; }
         public Image Image { get => _img; }
 
         private void Awake()

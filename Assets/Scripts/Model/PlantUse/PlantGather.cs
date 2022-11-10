@@ -16,7 +16,7 @@ namespace Model.PlantUse
             cell.Plant = GameTypes.Plant.Open;
             
             if (plantData.Type == GameTypes.Plant.Carrot)
-                ScoreController.CarrotScore = 1;
+                ScorePlayer.CarrotScore = 1;
             
             yield break;
         }

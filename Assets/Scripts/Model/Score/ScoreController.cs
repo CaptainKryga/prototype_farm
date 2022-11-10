@@ -2,15 +2,14 @@
 using UnityEngine;
 using View.Game;
 
-namespace Model
+namespace Model.Score
 {
-    //разбить на 2 скрипта отвечающие каждый за свой параметр inventory and player
     public class ScoreController: MonoBehaviour
     {
+        [SerializeField] private ScoreUI _scoreUI;
+        
         private int _carrotScore;
         private int _experience;
-
-        [SerializeField] private ScoreUI _scoreUI;
 
         public int CarrotScore
         {

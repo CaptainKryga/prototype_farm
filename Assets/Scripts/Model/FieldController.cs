@@ -14,7 +14,7 @@ namespace Model
         [SerializeField] private GameData _gameData;
         [SerializeField] private PlantUseBase _plantGrow, _plantGather;
 
-        [SerializeField] private CharaсterFarmer CharaсterFarmer;
+        [SerializeField] private CharacterFarmer CharaсterFarmer;
         
         private CustomInputBase _customInput;
         private Cell[] _cells;
@@ -37,10 +37,8 @@ namespace Model
         {
             if (flag && key == KeyCode.Mouse0 && !_cellActual && !CharaсterFarmer.IsBusy)
             {
-                RaycastHit hit;
                 Ray ray = _camera.ScreenPointToRay(mousePosition);
-
-                if (Physics.Raycast(ray, out hit))
+                if (Physics.Raycast(ray, out RaycastHit hit))
                 {
                     _cellActual = hit.transform.GetComponent<Cell>();
                     if (_cellActual)
@@ -67,14 +65,6 @@ namespace Model
             }
         }
 
-        private void ClearCells()
-        {
-            for (int x = 0; x < _cells.Length; x++)
-            {
-                _cells[x].SetUseMaterial(false);
-            }
-        }
-
         public void PlantGrow(GameTypes.Plant type)
         {
             ClearCells();
@@ -87,6 +77,7 @@ namespace Model
 
             _cellActual = null;
         }
+        
         public void PlantGather(GameTypes.Plant type)
         {
             ClearCells();
@@ -95,6 +86,14 @@ namespace Model
                 CharaсterFarmer.SetNextQuest(_plantGather.Starter, _gameData.GetPlantFromType(type), _cellActual);
 
             _cellActual = null;
+        }
+        
+        private void ClearCells()
+        {
+            for (int x = 0; x < _cells.Length; x++)
+            {
+                _cells[x].SetUseMaterial(false);
+            }
         }
 
         private void OnDestroy()

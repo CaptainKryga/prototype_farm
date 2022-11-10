@@ -22,7 +22,7 @@ namespace Model.PlantUse
             cell.Image.enabled = false;
             Instantiate(plantData.Prefab, cell.ParentPlant);
             
-            ScoreController.Experience = (int)plantData.Grow * 10;
+            ScorePlayer.Experience = (int)plantData.Grow * 10;
             
             cell.Plant = plantData.Type;
             yield break;

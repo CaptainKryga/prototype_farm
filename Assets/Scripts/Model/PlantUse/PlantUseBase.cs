@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using Model.Components;
+using Model.Score;
 using UnityEngine;
 
 namespace Model.PlantUse
 {
     public abstract class PlantUseBase: MonoBehaviour
     {
-        [SerializeField] protected ScoreController ScoreController;
+        [SerializeField] protected ScoreController ScorePlayer;
         
         public int Starter(PlantData plantData, Cell cell)
         {
