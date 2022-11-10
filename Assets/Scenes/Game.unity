@@ -877,7 +877,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreController: {fileID: 1836321475}
-  _charapterFarmer: {fileID: 3880670951576469369}
 --- !u!1 &417003177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,6 +1093,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textCarrot: {fileID: 913583883}
   _textExperience: {fileID: 676788557}
+--- !u!1 &581816563
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 581816564}
+  - component: {fileID: 581816565}
+  m_Layer: 0
+  m_Name: CameraKinematic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &581816564
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581816563}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 950512330}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &581816565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581816563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8670cb3e13546d88f4a70bfdfac4a1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startTransform: {fileID: 1038239762}
 --- !u!1 &603282905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1667,6 +1711,7 @@ Transform:
   m_Children:
   - {fileID: 3880670951576469365}
   - {fileID: 963194228}
+  - {fileID: 1038239762}
   m_Father: {fileID: 1283630040}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2260,6 +2305,7 @@ Transform:
   - {fileID: 890251648}
   - {fileID: 289960271}
   - {fileID: 1836321474}
+  - {fileID: 581816564}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2435,6 +2481,37 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3429940981293577180, guid: 06e039432c59b164c9b6dd17aac43990, type: 3}
   m_PrefabInstance: {fileID: 1892480019996676233}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1038239761
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1038239762}
+  m_Layer: 0
+  m_Name: CamPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1038239762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1038239761}
+  m_LocalRotation: {x: 0.002597096, y: 0.9110994, z: -0.41213873, w: 0.0057407776}
+  m_LocalPosition: {x: -0.7142352, y: 10.319375, z: 11.931855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 745923371}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1094772890
 GameObject:
   m_ObjectHideFlags: 0
@@ -3482,7 +3559,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _scoreController: {fileID: 1836321475}
-  _charapterFarmer: {fileID: 3880670951576469369}
 --- !u!1 &1753458594
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,9 +4256,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &3880670951576469369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4195,8 +4271,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d560b5b2b38f964eb668da8fdb9a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _cameraKinematicController: {fileID: 581816565}
   rigidbody: {fileID: 3880670951576469368}
   agent: {fileID: 3880670951576469370}
+  IsBusy: 0
 --- !u!195 &3880670951576469370
 NavMeshAgent:
   m_ObjectHideFlags: 0

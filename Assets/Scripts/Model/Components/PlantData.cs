@@ -9,7 +9,8 @@ namespace Model.Components
     {
         public GameTypes.Plant Type;
         //delay and experience
-        public float GrowDelay;
+        public float Grow;
+        public float PlantUse;
         public GameObject Prefab;
     }
 }

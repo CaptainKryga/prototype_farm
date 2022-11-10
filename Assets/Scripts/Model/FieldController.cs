@@ -21,7 +21,7 @@ namespace Model
         private Cell _cellActual;
 
         private Camera _camera;
-        
+
         [SerializeField] private MenuBase _menuBuy, _menuGather;
         
         public void Setup(Cell[] cells, CustomInputBase customInput)
@@ -35,7 +35,7 @@ namespace Model
 
         private void ClickField(KeyCode key, bool flag, Vector2 mousePosition)
         {
-            if (flag && key == KeyCode.Mouse0 && !_cellActual)
+            if (flag && key == KeyCode.Mouse0 && !_cellActual && !_charapterFarmer.IsBusy)
             {
                 RaycastHit hit;
                 Ray ray = _camera.ScreenPointToRay(mousePosition);

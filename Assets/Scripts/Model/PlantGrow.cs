@@ -20,19 +20,20 @@ namespace Model
 
         private IEnumerator Grow(PlantData plantData, Cell cell)
         {
-            float delay = plantData.GrowDelay;
+            float delay = plantData.Grow;
             cell.Image.enabled = true;
+            cell.Image.color = Color.white;
             while (delay > 0)
             {
                 delay -= Time.deltaTime;
-                cell.Image.fillAmount = 1 - 1 / (plantData.GrowDelay / delay);
+                cell.Image.fillAmount = 1 - 1 / (plantData.Grow / delay);
                 yield return new WaitForEndOfFrame();
             }
 
             cell.Image.enabled = false;
             Instantiate(plantData.Prefab, cell.ParentPlant);
             
-            _scoreController.Experience = (int)plantData.GrowDelay * 10;
+            _scoreController.Experience = (int)plantData.Grow * 10;
             
             cell.Plant = plantData.Type;
             yield break;

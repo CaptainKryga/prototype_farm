@@ -11,6 +11,7 @@ namespace Model.Components
 
         private Color _colorDefault, _colorCustom;
         [SerializeField] private Transform _parentPlant;
+        public Transform CamPoint;
 
         public GameTypes.Plant Plant;
         

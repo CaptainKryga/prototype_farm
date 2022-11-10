@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &782315437979071686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8411505332928125923}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8411505332928125923
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 782315437979071686}
+  m_LocalRotation: {x: 0.0035664598, y: 0.92360634, z: -0.3832295, w: 0.008591602}
+  m_LocalPosition: {x: -0.56628215, y: 2.3537831, z: 2.505612}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7915556646870015122}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2024944464983277004
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,7 +203,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -376,6 +407,7 @@ Transform:
   - {fileID: 7514699068471304540}
   - {fileID: 5949897027569957256}
   - {fileID: 6795111066074063794}
+  - {fileID: 8411505332928125923}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -394,6 +426,7 @@ MonoBehaviour:
   _img: {fileID: 3548468821103418188}
   _meshRenderer: {fileID: 2635707028165936732}
   _parentPlant: {fileID: 6795111066074063794}
+  CamPoint: {fileID: 8411505332928125923}
   Plant: 0
 --- !u!65 &7115429929078036075
 BoxCollider:

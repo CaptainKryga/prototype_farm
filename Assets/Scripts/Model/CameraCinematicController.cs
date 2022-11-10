@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Model
 {
-    public class CameraKinematicController : MonoBehaviour
+    public class CameraCinematicController : MonoBehaviour
     {
         [SerializeField] private Transform _startTransform;
         private Transform _camera;
