@@ -40,7 +40,6 @@ namespace Model
                 _camera.rotation = Quaternion.LerpUnclamped(_camera.rotation, 
                     target.rotation, Time.deltaTime * 3);
 
-                Debug.Log("Coroutina");
                 yield return new WaitForEndOfFrame();
             }
 
